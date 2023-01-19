@@ -25,6 +25,7 @@ import com.hello.springboothello.ex.repository.MemoryMemberRepository;
  * -> DI(Dependency Injection)
  */
 
+/* 순수 자바코드 테스트, 단위 테스트 */
 class MemberServiceTest {
 	
 	MemberService memberService;
