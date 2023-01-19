@@ -1,12 +1,10 @@
 package com.hello.springboothello.ex.service;
 
-import javax.persistence.EntityManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.hello.springboothello.ex.repository.JpaMemberRepository;
+import com.hello.springboothello.ex.aop.TimeTraceAop;
 import com.hello.springboothello.ex.repository.MemberRepository;
 
 
@@ -42,6 +40,11 @@ public class SpringConfig {
 	public MemberService memberService() {
 		return new MemberService(memberRepository);
 	}
+	
+//	@Bean
+//	public TimeTraceAop timeTraceAop() {
+//		return new TimeTraceAop();
+//	}
 	
 //	@Bean
 //	public MemberRepository memberRepository() {

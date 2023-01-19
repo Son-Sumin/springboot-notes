@@ -1,4 +1,4 @@
-package com.hello.springboothello.controller;
+package com.hello.springboothello.ex.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

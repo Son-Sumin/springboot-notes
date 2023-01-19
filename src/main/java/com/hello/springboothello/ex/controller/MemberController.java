@@ -1,4 +1,4 @@
-package com.hello.springboothello.controller;
+package com.hello.springboothello.ex.controller;
 
 import java.util.List;
 
