@@ -4,6 +4,7 @@
 ### SpringBoot, JPA, Thymeleaf, HIBERNATE, Eclipse(gradle-groovy), Tomcat, MariaDB(MySQL) 을 활용한 수업
 * * *
 
+
 ### 프로젝트 환경설정
 <details>
     <summary> 살펴보기 </summary> 
@@ -60,6 +61,7 @@
 </details>
 <br>
 
+
 ### View 환경설정   
 <details>
     <summary> 살펴보기 </summary> 
@@ -112,6 +114,7 @@
 
 * * *
 
+
 ### 웹을 출력하는 3가지 방법   
 <details>
     <summary> 살펴보기 </summary> 
@@ -145,7 +148,8 @@ API를 활용하여 데이터만 넘겨주는지 크게 2가지로 나뉜다.
   - MVC의 viewResolver 대신에 HttpMessageConverter가 동작
   - 기본 문자처리: StringHttpMessageConverter
   - 기본 객체처리: MappingJackson2HttpMessageConverter
-  - byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음
+  - byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음   
+  - 템플릿 엔진과의 차이는 view 없이 @ResponseBody는 바디에 담긴 그 문자 그대로 넘어간다
   <br>
 </details>
 <br>
@@ -211,9 +215,10 @@ API를 활용하여 데이터만 넘겨주는지 크게 2가지로 나뉜다.
   <br>
   
 **3. JPA**   
-  - JPA는 기존의 반복 코드는 물론이고, 기본적인 SQL도 JPA가 직접 만들어서 실행해준다.   
-  - JPA를 사용하면, SQL과 데이터 중심의 설계에서 객체 중심의 설계로 패러다임을 전환을 할 수 있다.   
-  - JPA를 사용하면 개발 생산성을 크게 높일 수 있다.   
+  - JPA는 기존의 반복 코드와 기본적인 SQL도 JPA가 직접 만들어서 실행해준다.   
+  - SQL과 데이터 중심의 설계에서 객체 중심의 설계로 패러다임을 전환을 할 수 있다.   
+    JPA : interface (ORM, Oriented Relational Mapping) / HYBENATE : 구현체 중 한 종류
+  - 개발 생산성을 크게 높일 수 있다.   
   <br>
   
 **4. 스프링 데이터 JPA**   
