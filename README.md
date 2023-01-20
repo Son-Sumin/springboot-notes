@@ -1,9 +1,10 @@
 ## [스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%9E%85%EB%AC%B8-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8)   
 출처 : 김영한, "스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술", 인프런, 2022년 11월 28일, https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%9E%85%EB%AC%B8-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8   
 <br>
-### SpringBoot, JPA, Thymeleaf, Eclipse(gradle-groovy), Tomcat, MariaDB(MySQL) 을 활용한 수업입니다.
+### SpringBoot, JPA, Thymeleaf, HIBERNATE, Eclipse(gradle-groovy), Tomcat, MariaDB(MySQL) 을 활용한 수업
 * * *
 
+### 프로젝트 환경설정
 - 준비물 : Java 11, IDE(IntelliJ 또는 Eclipse)   
 - 스프링 부트 스타터 사이트로 이동해서 스프링 프로젝트 생성 (https://start.spring.io)   
 ```
@@ -40,6 +41,7 @@
      - spring-core
   - spring-boot-starter-logging
      - logback, slf4j
+  - spring-boot-devtools: html 파일을 컴파일만 해주면 서버 재시작 없이 View 파일 변경이 가능
 ```
 
   2. 테스트 라이브러리
@@ -50,3 +52,33 @@
   - assertj: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리
   - spring-test: 스프링 통합 테스트 지원
 ```
+<br><br>
+
+### View 환경설정   
+- 스프링 부트가 제공하는 Welcome Page 기능   
+  - static/index.html 을 올려두면 Welcome page 기능을 제공
+  - https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/spring-boot-features.html#boot-features-spring-mvc-welcome-page   
+- thymeleaf 템플릿 엔진
+  - thymeleaf 공식 사이트: https://www.thymeleaf.org/
+  - 스프링 공식 튜토리얼: https://spring.io/guides/gs/serving-web-content/
+  - 스프링부트 메뉴얼: https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/spring-boot-features.html#boot-features-spring-mvc-template-engines
+- thymeleaf 템플릿엔진 동작 확인 (http://localhost:8080/hello)
+  - 확인하기 위해 HelloController.java, resources/templates/hello.html 작성 후 서버 접근
+<br>
+
+- 빌드하고 실행 (Window 사용)
+  * 서버 배포시 jar 파일 복사하여 서버에 넣어주고 # java -jar ~ 실행시키면 된다
+  ```
+  이클립스 서버 끈 후
+  명령 프롬프트(cmd)로 이동
+  해당 dir로 이동
+    # ./gradlew build
+    # cd build
+    # cd libs
+    # java -jar hello-spring-0.0.1-SNAPSHOT.jar
+   실행 확인 (Spring 뜨는지 확인)
+  
+  위가 잘 안 될 시
+    # ./gradlew clean build   (build 폴더 완전 삭제 후 재생성)
+    
+  ```
