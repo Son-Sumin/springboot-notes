@@ -82,3 +82,28 @@
     # ./gradlew clean build   (build 폴더 완전 삭제 후 재생성)
     
   ```
+  <br><br>
+
+### build.gradle, application.properties 세팅 필수
+- [build.gradle](https://github.com/Son-Sumin/springboot-hello/blob/main/build.gradle)   
+- [application.properties](https://github.com/Son-Sumin/springboot-hello/blob/main/src/main/resources/application.properties)   
+* * *
+
+### 웹을 출력하는 3가지 방법   
+정적 컨텐츠를 제외하면 view를 찾아 템플릿 엔진을 활용하여 html로 웹 브라우저에 넘겨주는지,   
+API를 활용하여 데이터만 넘겨주는지 크게 2가지로 나뉜다.   
+**1. 정적 컨텐츠**   
+     처리없이 파일 자체를 웹 브라우저에 보냄   
+     
+**2. MVC와 템플릿 엔진**   
+     서버에서 프로그램을 거쳐 html을 좀 바꿔서 동적으로 웹 브라우저에 보냄   
+   - Controller : 비지니스 로직, 서버, 내부적으로 처리에 집중   
+   - Model : 화면에서 필요한 것을 담아 넘겨줌   
+   - View : 화면을 그리는데 집중   
+   - 템플릿 엔진 : html을 효율적이고, 보기 좋게 바꿔줌    
+   
+**3. API**   
+     JSON이라는 data format으로 data를 클라이언트에게 전달   
+     Vue.js, JS, React 사용할 때도 API로 data만 내려주면 화면은 클라이언트가 구성   
+     서버끼지 통신할 경우 (html 필요없음)   
+     @ResponseBody 문자, 객체(JSON으로 변환됨) 반환하며, 이를 사용하면 viewResolver를 사용하지 않음   
