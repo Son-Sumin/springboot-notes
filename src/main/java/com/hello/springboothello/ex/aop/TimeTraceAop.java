@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class TimeTraceAop {
 
 	// 공통관심사항을 어디에 적용할지 타겟팅
-	// execution(* 패키지..*(..)) 보통 패키지 레벨로 많이 함. 조정 가능
+	// execution(* 패키지..*(..)) 보통 패키지 레벨로 많이 함. 조정 가능  -> 에러 주의
 	@Around("execution(* com.hello.springboothello..*(..)) ")
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 		long start = System.currentTimeMillis();
