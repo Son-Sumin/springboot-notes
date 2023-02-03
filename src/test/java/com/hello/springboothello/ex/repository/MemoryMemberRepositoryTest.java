@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hello.springboothello.ex.domain.Member;
 
+@SpringBootTest
 class MemoryMemberRepositoryTest {  // 다른 곳에서 사용할 것이 아니므로 public일 필요 없음
 	// test는 순서에 의존적으로 설계하면 안 된다!!
 	// JUnit method 순서 지정 불가
