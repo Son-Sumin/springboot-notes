@@ -17,54 +17,32 @@ public class MemberController {
 	// private final MemberService memberService = new memberService;
 	// 여러 번 생성할 필요가 없고 한 번만 생성해서 공용으로 사용하면 됨
 	// 이제부터 스프링 컨테이너에 등록하고 쓰자. 스프링 컨테이너에는 딱 하나만 등록이 됨.
-<<<<<<< HEAD
-
-	private final MemberService memberService;
-
-=======
-	
 	private final MemberService memberService;
 	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
+
 	// 생성자 설정
 	// @Autowired
 	public MemberController(MemberService memberService) {
 		this.memberService = memberService;
 		System.out.println("memberService = " + memberService.getClass());
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@GetMapping("/members/new")  // URL 접근, 조회은 보통 @GetMapping
 	public String createForm() {
 		return "members/createMemberForm";
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@PostMapping("/members/new")  // form에 내용을 담아서 넘길 때 @PostMapping
 	public String create(MemberForm form) {
 		Member member = new Member();
 		member.setName(form.getName());
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 		System.out.println("member = " + member.getName());
 		memberService.join(member);
 
 		return "redirect:/";
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@GetMapping("/members")
 	public String list(Model model) {
 		List<Member> members = memberService.findMembers();
@@ -72,11 +50,7 @@ public class MemberController {
 		return "members/memberList";
 	}
 }
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 
 /*
 스프링 컨테이터가 뜰 때 @Controller을 보고 MemberController 객체를 생성하여 갖고있다
@@ -92,11 +66,7 @@ MemberController가 생성자 호출도 같이함
   단점: 더 이상 수정이 힘들다
 @Autowired
 private MemberService memberService;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 * DI 주입 방법3 - setter 주입
   단점: Controller를 호출했을 때 public void setMemberService 상태여야 한다.
   public으로 노출되어 있어 바뀔 수 있는 상황이고, 중간에 잘못 바꾸면 문제가 된다. 사실 처음에만 setter를 만지지만 이후에는 만질 일이 없다.
@@ -106,9 +76,4 @@ private MemberService memberService;
 public void setMemberService(MemberService memberService) {
 	this.memberService = memberService;
 	}
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 */
