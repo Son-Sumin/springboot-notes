@@ -20,37 +20,63 @@ import com.hello.springboothello.ex.repository.MemoryMemberRepository;
 /*
  * MemberService memberService = new MemberService();
  * private final MemberRepository memberRepository;
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
  * 위 2개는 서로 다른 객체임. 같은 객체로서 활용하기 위해 private final~ 을 public을 통해 외부에서 넣어줄 수 있도록 함
  * -> DI(Dependency Injection)
  */
 
 /* 순수 자바코드 테스트, 단위 테스트 */
 class MemberServiceTest {
+<<<<<<< HEAD
 
 	MemberService memberService;
 	MemoryMemberRepository memberRepository;
 
+=======
+	
+	MemberService memberService;
+	MemoryMemberRepository memberRepository;
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@BeforeEach
 	public void beforeEach() {
 		memberRepository = new MemoryMemberRepository();
 		memberService = new MemberService(memberRepository);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@AfterEach
 	public void afterEach() {
 		memberRepository.clearStore();
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@Test
 	void 회원가입() {
 		// given
 		Member member = new Member();
 		member.setName("spring");
+<<<<<<< HEAD
 
 		// when
 		Long saveId = memberService.join(member);
 
+=======
+		
+		// when
+		Long saveId = memberService.join(member);
+		
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 		// then
 		Member findMember = memberService.findOne(saveId).get();
 		assertThat(member.getName()).isEqualTo(findMember.getName());
@@ -61,17 +87,30 @@ class MemberServiceTest {
 		// given
 		Member member1 = new Member();
 		member1.setName("spring");
+<<<<<<< HEAD
 
 		Member member2 = new Member();
 		member2.setName("spring");
 
+=======
+		
+		Member member2 = new Member();
+		member2.setName("spring");
+		
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 		// when
 		memberService.join(member1);
 		IllegalStateException e = assertThrows(IllegalStateException.class,
 				() -> memberService.join(member2));  // () -> memberService.join(member2) 실행하기 위해 IllegalStateException 발생해야함
+<<<<<<< HEAD
 
 		assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
+=======
+		
+		assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+		
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 		/* try~catch 사용
 		try {
 			memberService.join(member2);
@@ -80,9 +119,15 @@ class MemberServiceTest {
 			assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 		}
 		 */
+<<<<<<< HEAD
 
 		// then
 
+=======
+		
+		// then
+		
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	}
 
 	@Test

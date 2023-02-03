@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import com.hello.springboothello.ex.domain.Member;
 
 public class JpaMemberRepository implements MemberRepository {
+<<<<<<< HEAD
 
 	private final EntityManager em;  // JPA를 사용하면 EntityManager 주입 받아야함. 스프링부트가 EntityManager에게 라이브러리, db connection 정보, .properties 정보들 다 연결해줌
 
@@ -15,27 +16,51 @@ public class JpaMemberRepository implements MemberRepository {
 		this.em = em;
 	}
 
+=======
+	
+	private final EntityManager em;  // JPA를 사용하면 EntityManager 주입 받아야함. 스프링부트가 EntityManager에게 라이브러리, db connection 정보, .properties 정보들 다 연결해줌
+	
+	public JpaMemberRepository(EntityManager em) {
+		this.em = em;
+	}
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@Override
 	public Member save(Member member) {
 		em.persist(member);
 		return member;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@Override
 	public Optional<Member> findById(Long id) {
 		Member member = em.find(Member.class, id);  // find(조회할 타입, 식별자 PK)
 		return Optional.ofNullable(member);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@Override
 	public Optional<Member> findByName(String name) {
 		List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
 				.setParameter("name", name)
 				.getResultList();
+<<<<<<< HEAD
 
 		return result.stream().findAny();
 	}
 
+=======
+		
+		return result.stream().findAny();
+	}
+	
+>>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 	@Override
 	public List<Member> findAll() {
 		List<Member> result = em.createQuery("select m from Member m", Member.class).getResultList();
