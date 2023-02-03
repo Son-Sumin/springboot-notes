@@ -13,19 +13,19 @@ import com.hello.springboothello.ex.repository.MemberRepository;
 public class MemberService {
 
 	private final MemberRepository memberRepository;
-	
+
 	//@Autowired
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
-	
+
 	/* 회원가입 */
 	public Long join(Member member) {
 		validateDuplicateMember(member);	// 중복 회원 검증
 		memberRepository.save(member);
-		return member.getId();				// 임의로 Id만 반환하는 것으로 설정	
+		return member.getId();				// 임의로 Id만 반환하는 것으로 설정
 }
-	
+
 	// 같은 이름이 있는 중복회원X
 	private void validateDuplicateMember(Member member) {
 		memberRepository.findByName(member.getName())
@@ -36,14 +36,14 @@ public class MemberService {
 		/*
 		  Optional<Member> result = memberRepository.findByName(member.getName());
 		  result.ifPresent(m ->{ ~ }
-		  위를 코드 정리 
+		  위를 코드 정리
 		  result가 있으면 ifPresent 작동 => Optional<Member>이기에 가능함. Optional에 많은 메소드 존재
 		 */
 	}
-	
+
 	/* 전체 회원 조회 */
 	public List<Member> findMembers() {
-		
+
 //		long start = System.currentTimeMillis();
 //		try {
 			return memberRepository.findAll();
@@ -51,11 +51,11 @@ public class MemberService {
 //			long finish = System.currentTimeMillis();
 //			long timeMs = finish -start;
 //			System.out.println("join = " + timeMs + "ms");
-//		}	
+//		}
 	}
-	
+
 	public Optional<Member> findOne(Long memberId) {
 		return memberRepository.findById(memberId);
 	}
-	
+
 }

@@ -20,37 +20,37 @@ import com.hello.springboothello.ex.repository.MemoryMemberRepository;
 /*
  * MemberService memberService = new MemberService();
  * private final MemberRepository memberRepository;
- * 
+ *
  * 위 2개는 서로 다른 객체임. 같은 객체로서 활용하기 위해 private final~ 을 public을 통해 외부에서 넣어줄 수 있도록 함
  * -> DI(Dependency Injection)
  */
 
 /* 순수 자바코드 테스트, 단위 테스트 */
 class MemberServiceTest {
-	
+
 	MemberService memberService;
 	MemoryMemberRepository memberRepository;
-	
+
 	@BeforeEach
 	public void beforeEach() {
 		memberRepository = new MemoryMemberRepository();
 		memberService = new MemberService(memberRepository);
 	}
-	
+
 	@AfterEach
 	public void afterEach() {
 		memberRepository.clearStore();
 	}
-	
+
 	@Test
 	void 회원가입() {
 		// given
 		Member member = new Member();
 		member.setName("spring");
-		
+
 		// when
 		Long saveId = memberService.join(member);
-		
+
 		// then
 		Member findMember = memberService.findOne(saveId).get();
 		assertThat(member.getName()).isEqualTo(findMember.getName());
@@ -61,17 +61,17 @@ class MemberServiceTest {
 		// given
 		Member member1 = new Member();
 		member1.setName("spring");
-		
+
 		Member member2 = new Member();
 		member2.setName("spring");
-		
+
 		// when
 		memberService.join(member1);
 		IllegalStateException e = assertThrows(IllegalStateException.class,
 				() -> memberService.join(member2));  // () -> memberService.join(member2) 실행하기 위해 IllegalStateException 발생해야함
-		
+
 		assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-		
+
 		/* try~catch 사용
 		try {
 			memberService.join(member2);
@@ -80,9 +80,9 @@ class MemberServiceTest {
 			assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 		}
 		 */
-		
+
 		// then
-		
+
 	}
 
 	@Test

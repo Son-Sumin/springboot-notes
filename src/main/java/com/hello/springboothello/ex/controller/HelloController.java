@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-	
+
 	@GetMapping("hello")
 	public String hello(Model model) {
 		model.addAttribute("data", "hello!!");   // (attributeName, attributeValue)
 		return "hello";
 	}
-	
+
 	@GetMapping("hello-mvc")
 	public String helloMvc(@RequestParam("name") String name, Model model) {
 		model.addAttribute("name", name);
@@ -23,13 +23,13 @@ public class HelloController {
 	// localhost:8080/hello-mvc?name=spring!
 	// @RequestParam(value = "name", required = false)  =>   hello null
 	// required은 default가 true이고, 기본값을 넣어야한다. false면 안 넣어도 된다.
-	
+
 	@GetMapping("hello-string")
 	@ResponseBody
 	public String helloString(@RequestParam("name") String name) {
 		return "hello " + name;
 	}
-	
+
 	// API 핵심 - JSON(key: value로 이뤄짐)으로 넘겨줌
 	// 스프링에서 객체를 반환하고 @ResponseBody을 붙이면 JSON으로 반환하는 것이 기본
 	@GetMapping("hello-api")
@@ -39,17 +39,17 @@ public class HelloController {
 		hello.setName(name);
 		return hello;
 	}
-	
+
 	// 객체 생성
 	// static 만들면 public class HelloController 안에서 또 사용할 수 있다
 	// getter setter방식 = 프로퍼티 접근 방식 = JAVA Bean 규약
 	static class Hello{
 		private String name;
-		
+
 		public String getName() {
 			return name;
 		}
-		
+
 		public void setName(String name) {
 			this.name = name;
 		}
@@ -70,13 +70,13 @@ HelloController 안에 있는 String hello 메소드가 실행된다.
 컨트롤러에서 리턴 값으로 문자를 반환하면 뷰 리졸버(viewResolver)가 화면을 찾아서 처리한다.
   - 스프링 부트 템플릿엔진 기본 viewName 매핑
   - resources:templates/ +{ViewName}+ .html
-  
-  
+
+
  * 동작 원리 *
  * @GetMapping("hello-mvc")
 웹 브라우저에서 localhost:8080/hello-mvc 를 넘기면
 스프링부트에 내장된 톰켓 서버가 스프링 컨테이너에게 넘긴다.
-스프링 컨테이너 안에 있는 HelloController 중 @GetMapping에 반응하여 get방식으로 넘어온 "hello-mvc" @GetMapping("hello-mvc") 매칭된다. 
+스프링 컨테이너 안에 있는 HelloController 중 @GetMapping에 반응하여 get방식으로 넘어온 "hello-mvc" @GetMapping("hello-mvc") 매칭된다.
 
 스프링은 HelloController 안에 있는 String helloMvc 메소드를 호출해준다.
 그리고 hello-template.html을 model과 스프링에 반환한다. 스프링은 이를 viewResolver에게 넘겨준다.

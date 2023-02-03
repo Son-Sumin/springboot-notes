@@ -20,19 +20,19 @@ import com.hello.springboothello.ex.repository.MemberRepository;
 @SpringBootTest
 @Transactional  // test 시작 전, 실행 후 실행되어 db를 clear해준다.
 class MemberServiceIntegrationTest {
-	
+
 	@Autowired MemberService memberService;
 	@Autowired MemberRepository memberRepository;
-	
+
 	@Test
 	void 회원가입() {
 		// given
 		Member member = new Member();
 		member.setName("spring");
-		
+
 		// when
 		Long saveId = memberService.join(member);
-		
+
 		// then
 		Member findMember = memberService.findOne(saveId).get();
 		assertThat(member.getName()).isEqualTo(findMember.getName());
@@ -43,15 +43,15 @@ class MemberServiceIntegrationTest {
 		// given
 		Member member1 = new Member();
 		member1.setName("spring");
-		
+
 		Member member2 = new Member();
 		member2.setName("spring");
-		
+
 		// when
 		memberService.join(member1);
 		IllegalStateException e = assertThrows(IllegalStateException.class,
 				() -> memberService.join(member2));
-		
-		assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");	
+
+		assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 	}
 }

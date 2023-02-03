@@ -16,9 +16,9 @@ import com.hello.springboothello.ex.domain.Member;
 
 
 public class JdbcTemplateMemberRepository implements MemberRepository {
-	
+
 	private final JdbcTemplate jdbcTemplate;
-	
+
 //	@Autowired  // 생성자가 딱 하나이면 생략 가능
 	public JdbcTemplateMemberRepository(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);  // 스프링이 자동으로 dataSource injection해줌
@@ -28,11 +28,11 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
 	public Member save(Member member) {
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("member").usingGeneratedKeyColumns("id");
-		
+
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("name", member.getName());
 		// 여기까지 insert문 역할. 아래는 setter 역할
-		
+
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		member.setId(key.longValue());
 		return member;
@@ -54,7 +54,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
 	public List<Member> findAll() {
 		return jdbcTemplate.query("select * from member", memberRowMapper());
 	}
-	
+
 	private RowMapper<Member> memberRowMapper() {
 		return (rs, rowNum) -> {
 				Member member = new Member();
