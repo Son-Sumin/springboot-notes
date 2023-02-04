@@ -1,10 +1,7 @@
 package com.hello.springboothello.ex.repository;
 
-<<<<<<< HEAD
-=======
 import com.hello.springboothello.ex.domain.Member;
 
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,12 +15,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-
-<<<<<<< HEAD
 import com.hello.springboothello.ex.domain.Member;
 
-=======
->>>>>>> 7b996a9b4ce24fb4022fc6f51e525f4bca9e4ea0
 public class JdbcMemberRepository implements MemberRepository {
 	private final DataSource dataSource;
 
