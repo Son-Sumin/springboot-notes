@@ -1,10 +1,10 @@
 package com.hello.springboothello.ex.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.hello.springboothello.ex.aop.TimeTraceAop;
+//import com.hello.springboothello.ex.aop.TimeTraceAop;
 import com.hello.springboothello.ex.repository.MemberRepository;
 
 
@@ -18,7 +18,7 @@ public class SpringConfig {
 	// 스프링 데이터 JPA에 만들어 놓은 구현체가 등록된다
 	private final MemberRepository memberRepository;
 
-	@Autowired
+	//@Autowired
 	public SpringConfig(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}

@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-import com.hello.springboothello.ex.domain.Member;
 
 public class JdbcMemberRepository implements MemberRepository {
 	private final DataSource dataSource;
